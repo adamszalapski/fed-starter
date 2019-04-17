@@ -1,0 +1,57 @@
+{
+  "name": "fed-starter",
+  "version": "0.1.0",
+  "description": "Frontend developer website starter pack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "gulp build --production",
+    "linttest": "gulp linttest --devtest",
+    "build-dev": "gulp build-dev --production",
+    "postinstall": "find node_modules/ -name '*.info' -type f -delete"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adamszalapski/website-starter.git"
+  },
+  "author": "Adam Szałapski",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.23.7",
+    "del": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-jquery": "^1.3.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "git+https://github.com/gulpjs/gulp.git#4.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-iconfont": "^9.1.0",
+    "gulp-iconfont-css": "^2.1.0",
+    "gulp-if": "^2.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-remember": "^1.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sass-lint": "^1.3.4",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^4.0.3",
+    "yargs": "^11.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "foundation-sites": "^6.4.4-rc1",
+    "slick-carousel": "^1.8.1"
+  }
+}

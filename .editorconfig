@@ -1,0 +1,22 @@
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+indent_style = space
+end_of_line = LF
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Front-end
+[*.{js,css,sass,scss}]
+indent_size = 2
+
+# Front-end
+[*.{html, pug}]
+indent_size = 2
+
+# Matches the exact files either *.json or *.yml
+[{*.json, *.yml}]
+indent_size = 2

@@ -1,0 +1,99 @@
+//sass-lint:disable-all
+
+// Create font-face
+=font-face($name, $path, $weight: null, $style: null, $exts: eot 'eot?#iefix' woff ttf)
+
+  $src: null
+  $extmods: ( eot: '')
+  $formats: ('eot?#iefix': 'embedded-opentype', otf: 'opentype', ttf: 'truetype')
+
+  @each $ext in $exts
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext)
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext)
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma)
+
+  @if $weight == null
+    $weight:  normal
+  @if $style == null
+    $style:  normal
+
+  @font-face
+    font:
+      family: quote($name)
+      style: $style
+      weight: $weight
+    src: $src
+
+
+// Add style to specific device
+// @example
+// +useragent((iPad, iPhone))
+//  .button
+//    background: red
+=useragent($agents)
+  $count: length($agents)
+  $data-useragents: ''
+
+  @each $agent in $agents
+    $i: index($agents, $agent)
+    $data-useragents : '#{$data-useragents}&[data-useragent*="#{$agent}"]'
+
+    @if ($count > 1 and $i != $count)
+      $data-useragents : '#{$data-useragents},'
+
+  html
+    #{$data-useragents}
+      @content
+
+
+// Full witdh of element
+// More info: https://css-tricks.com/full-width-containers-limited-width-parents/
+=full-width
+  position: relative
+  right: 50%
+  left: 50%
+  width: 100vw
+  margin-right: -50vw
+  margin-left: -50vw
+  padding: 0
+
+
+// Placeholder mixins
+$transparent: transparent
+
+=hide-placeholder
+  &::-webkit-input-placeholder
+    color: $transparent
+  &:-moz-placeholder
+    color: $transparent
+  &::-moz-placeholder
+    color: $transparent
+  &:-ms-input-placeholder
+    color: $transparent
+  &::placeholder
+    color: $transparent
+
+=set-color-placeholder($color)
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &::-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
+  &::placeholder
+    color: $color
+
+
+// Remove element visually but not from Accessibility Tree
+// More info: https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/
+=visuallyhidden
+  position: absolute
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  height: 1px
+  width: 1px
+  margin: -1px
+  padding: 0
+  border: 0
